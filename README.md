@@ -31,6 +31,64 @@ Feature: Task routing fallback
 Output: docs/test-plans/task-routing-fallback.md
 ```
 
+### Using the skill in Claude Code
+
+#### Install from the Claude Code plugin marketplace
+
+From a Claude Code session, add this repository as a marketplace:
+
+```text
+/plugin marketplace add shellyyang1989/ai-skills
+```
+
+Install the `generate-test-plan` plugin:
+
+```text
+/plugin install generate-test-plan@ai-skills
+```
+
+Invoke the skill by name:
+
+```text
+/generate-test-plan
+
+Requirements: docs/requirements/task-routing.md
+Design: docs/design/system-architecture.md
+Repositories: ./gateway ./scheduler
+Feature: Task routing fallback
+Output: docs/test-plans/task-routing-fallback.md
+```
+
+Use `/plugin marketplace update ai-skills` to refresh the marketplace catalog. Reinstall the plugin to update an already installed version:
+
+```text
+/plugin install generate-test-plan@ai-skills
+```
+
+#### Install manually for one project
+
+Copy the skill into the project's `.claude/skills/` directory:
+
+```bash
+mkdir -p .claude/skills/generate-test-plan
+curl -L https://raw.githubusercontent.com/shellyyang1989/ai-skills/main/generate-test-plan.md \
+  -o .claude/skills/generate-test-plan/SKILL.md
+```
+
+The skill is then available in Claude Code sessions started from that project.
+
+#### Install manually for all projects
+
+Copy the skill into Claude Code's personal skills directory:
+
+```bash
+mkdir -p ~/.claude/skills/generate-test-plan
+curl -L https://raw.githubusercontent.com/shellyyang1989/ai-skills/main/generate-test-plan.md \
+  -o ~/.claude/skills/generate-test-plan/SKILL.md
+```
+
+Start a new Claude Code session if the skill is not discovered immediately. The skill is Markdown instructions, not an executable program or dependency; Claude Code reads the instructions and performs the requested analysis.
+
 ## Repository structure
 
 ```text
