@@ -337,7 +337,7 @@ Use project-defined criteria when available. Otherwise, label proposed criteria 
 
 ### 7.6 Output path
 
-If the user asks for a file, follow the supplied path or repository convention. If no convention exists, use `docs/test-plans/<feature>-test-plan.md` when saving in the repository. Do not overwrite an existing plan unless requested; use a candidate filename and summarize the difference. If the user asks for the plan in chat, do not create a file.
+If the user asks for a file, follow the supplied path or repository convention. If no convention exists, use `docs/test-plan-<feature>.md` when saving in the repository. Do not overwrite an existing plan unless requested; use a candidate filename and summarize the difference. If the user asks for the plan in chat, do not create a file.
 
 ## 8. Special cases
 
@@ -382,7 +382,6 @@ When updating a plan:
 
 During test-plan generation:
 
-- Do not query or depend on an issue tracker.
 - Do not modify application code, test code, CI configuration, deployment configuration, or infrastructure.
 - Do not install dependencies, deploy services, provision infrastructure, or run tests unless the user requests those actions.
 - Do not run destructive, production-impacting, or environment-changing commands.
